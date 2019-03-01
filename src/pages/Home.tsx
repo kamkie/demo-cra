@@ -1,5 +1,5 @@
 import logo from "../logo.svg";
-import Navbar from "../components/navbar";
+import Navbar from "../components/Navbar";
 import React, {ReactChild} from "react";
 
 interface HomeProps {

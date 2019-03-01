@@ -4,7 +4,7 @@ import {ConnectedRouter} from "connected-react-router";
 import configureStore, {history} from "./store";
 import {Route, Switch} from "react-router";
 import {Provider} from "react-redux";
-import {Home} from "./pages/home";
+import {Home} from "./pages/Home";
 
 const store = configureStore({});
 
