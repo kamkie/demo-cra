@@ -3,14 +3,23 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "analyze": "source-map-explorer build/static/js/main.*",
+    "analyzeVendor": "source-map-explorer  build/static/js/*.chunk.js",
+    "clean": "rimraf build",
     "start": "react-scripts start",
+    "start:dev": "react-scripts start",
+    "start:prod": "node src/server/server.js",
     "build": "react-scripts build",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
     "test": "react-scripts test",
     "test:coverage": "react-scripts test --coverage",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "tsc": "tsc -w"
   },
   "dependencies": {
     "compression": "latest",
+    "cross-env": "^5.2.0",
     "dotenv-flow": "^0.2.0",
     "express": "latest",
     "http-proxy-middleware": "^0.19.1",
@@ -24,6 +33,8 @@
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "react-scripts": "2.1.5",
+    "rimraf": "^2.6.3",
+    "source-map-explorer": "^1.7.0",
     "typescript": "3.3.3333"
   },
   "eslintConfig": {

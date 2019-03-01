@@ -3,8 +3,6 @@ const compression = require('compression');
 const proxy = require('http-proxy-middleware');
 const morgan = require('morgan');
 
-console.log(process.env.CONTEXT_PATH);
-
 module.exports = function(app) {
   app.set('x-powered-by', false);
   app.use(compression());
