@@ -2,7 +2,21 @@
   "name": "demo-cra",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "test:coverage": "react-scripts test --coverage",
+    "eject": "react-scripts eject"
+  },
   "dependencies": {
+    "compression": "latest",
+    "dotenv-flow": "^0.2.0",
+    "express": "latest",
+    "http-proxy-middleware": "^0.19.1",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
     "@types/jest": "24.0.9",
     "@types/node": "11.9.6",
     "@types/react": "16.8.6",
@@ -11,12 +25,6 @@
     "react-dom": "^16.8.3",
     "react-scripts": "2.1.5",
     "typescript": "3.3.3333"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
