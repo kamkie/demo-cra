@@ -1,30 +1,29 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Navbar from "./components/navbar";
+import {ConnectedRouter} from "connected-react-router";
+import configureStore, {history} from "./store";
+import {Route, Switch} from "react-router";
+import {Provider} from "react-redux";
+import {Home} from "./pages/home";
 
-class App extends Component {
+const store = configureStore({});
+
+export default class App extends Component {
   render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo"/>
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <Navbar/>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+    return <Provider store={store}>
+      <ConnectedRouter history={history}>
+        <Switch>
+          <Route exact path="/">
+            <Home/>
+          </Route>
+          <Route exact path="/foo">
+            <Home message={<div>hello</div>}/>
+          </Route>
+          <Route>
+            <div>Miss</div>
+          </Route>
+        </Switch>
+      </ConnectedRouter>
+    </Provider>
   }
 }
-
-export default App;
