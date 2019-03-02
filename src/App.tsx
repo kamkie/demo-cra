@@ -23,7 +23,7 @@ export default () => (
           <Home message={<Counter step={1} counter={0}>hello</Counter>}/>
         </Route>
         <Route>
-          <div>Miss</div>
+          <Home message={<div>other page</div>}/>
         </Route>
       </Switch>
     </ConnectedRouter>

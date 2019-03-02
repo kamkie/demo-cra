@@ -3,11 +3,18 @@ import {applyMiddleware, combineReducers, compose, createStore} from 'redux'
 import {connectRouter, routerMiddleware} from 'connected-react-router'
 import {composeWithDevTools} from 'redux-devtools-extension';
 
+const contextPath = process.env.REACT_APP_CONTEXT_PATH || '/';
+
+export const history = createBrowserHistory({
+  basename: contextPath,
+});
+
 const createRootReducer = (history: History) => combineReducers({
   router: connectRouter(history)
 });
 
-export const history = createBrowserHistory();
+console.log(contextPath);
+
 
 export default function configureStore(preloadedState: any) {
   return createStore(

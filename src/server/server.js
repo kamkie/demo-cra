@@ -6,7 +6,7 @@ const setupProxy = require('../setupProxy');
 
 const host = process.env.HOST;
 const port = process.env.PORT;
-const contextPath = process.env.CONTEXT_PATH;
+const contextPath = process.env.CONTEXT_PATH === '/' ? '' : process.env.CONTEXT_PATH || '';
 
 setupProxy(app);
 
