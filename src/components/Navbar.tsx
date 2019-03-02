@@ -6,5 +6,6 @@ export default () => <>
   <Link to="/foo">Foo</Link>
   <Link to="/counter">counter</Link>
   <Link to="/other">other</Link>
+  <Link to="/redux">redux</Link>
 </>
 

@@ -6,6 +6,7 @@ import {Route, Switch} from "react-router";
 import {Provider} from "react-redux";
 import Home from "./pages/Home";
 import Counter from "./components/Counter";
+import ReduxCounter from "./components/ReduxCounter";
 
 const store = configureStore({});
 
@@ -21,6 +22,9 @@ export default () => (
         </Route>
         <Route exact path="/counter">
           <Home message={<Counter step={1} counter={0}>hello</Counter>}/>
+        </Route>
+        <Route exact path="/redux">
+          <Home message={<ReduxCounter/>}/>
         </Route>
         <Route>
           <Home message={<div>other page</div>}/>
