@@ -22,7 +22,7 @@ export default () => (
           <Home message={<Counter step={1} counter={0}>hello</Counter>}/>
         </Route>
         <Route exact path="/redux">
-          <Home message={<ReduxCounter/>}/>
+          <Home message={<ReduxCounter storeSelector={store1 => store1.counter}/>}/>
         </Route>
         <Route>
           <Home message={<div>other page</div>}/>

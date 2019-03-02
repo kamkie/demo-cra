@@ -11,23 +11,42 @@ export interface CounterState {
   readonly count: number
 }
 
-interface CounterProps {
-  readonly count: number
-  readonly dispatch: Dispatch
+interface CounterAction extends Action<CounterActions> {
 }
 
-function mapStateToProps(state: AppState) {
+interface CounterExternalProps {
+  storeSelector: (store: AppState) => CounterState
+}
+
+interface CounterStateProps {
+  readonly count: number
+}
+
+interface CounterDispatchProps {
+  readonly increment: () => void
+  readonly decrement: () => void
+}
+
+type CounterProps = CounterExternalProps & CounterStateProps & CounterDispatchProps
+
+function mapStateToProps(state: AppState, ownProps: CounterExternalProps): CounterStateProps {
+  return ownProps.storeSelector(state);
+}
+
+function mapDispatchToProps(dispatch: Dispatch<Action<CounterActions>>): CounterDispatchProps {
   return {
-    count: state.counter.count
-  };
+    increment: () => dispatch({type: CounterActions.INCREMENT}),
+    decrement: () => dispatch({type: CounterActions.DECREMENT}),
+  }
 }
 
 enum CounterActions {
   INCREMENT = '@@counter/INCREMENT',
   DECREMENT = '@@counter/DECREMENT',
+  // DECREMENT2 = '@@counter/DECREMENT2',
 }
 
-export function counterReducer(state = initialState, action: Action<CounterActions>) {
+export function counterReducer(state = initialState, action: CounterAction) {
   const {INCREMENT, DECREMENT} = CounterActions;
   switch (action.type) {
     case INCREMENT:
@@ -39,31 +58,31 @@ export function counterReducer(state = initialState, action: Action<CounterActio
         count: state.count - 1
       };
     default:
+      assertNever(action.type);
       return state;
   }
 }
 
-class ReduxCounter extends React.Component<CounterProps, CounterState> {
-  increment = () => {
-    this.props.dispatch({type: CounterActions.INCREMENT});
-  };
+// noinspection JSUnusedLocalSymbols
+export function assertNever(_: never) {
+  console.error("Never touched");
+}
 
-  decrement = () => {
-    this.props.dispatch({type: CounterActions.INCREMENT});
-  };
+class ReduxCounter extends React.Component<CounterProps> {
 
   render() {
+    const {count, increment, decrement} = this.props;
     return (
       <div>
         <h2>Counter</h2>
         <div>
-          <button onClick={this.decrement}>-</button>
-          <span>count: {this.props.count}</span>
-          <button onClick={this.increment}>+</button>
+          <button onClick={decrement}>-</button>
+          <span>count: {count}</span>
+          <button onClick={increment}>+</button>
         </div>
       </div>
     )
   }
 }
 
-export default connect(mapStateToProps)(ReduxCounter);
+export default connect(mapStateToProps, mapDispatchToProps)(ReduxCounter);
