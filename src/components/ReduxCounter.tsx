@@ -3,13 +3,17 @@ import {connect} from "react-redux";
 import {Action, Dispatch} from "redux";
 import {AppState} from "../store";
 
+const initialState: CounterState = {
+  count: 0
+};
+
 export interface CounterState {
-  count: number
+  readonly count: number
 }
 
 interface CounterProps {
-  count: number,
-  dispatch: Dispatch
+  readonly count: number
+  readonly dispatch: Dispatch
 }
 
 function mapStateToProps(state: AppState) {
@@ -18,13 +22,19 @@ function mapStateToProps(state: AppState) {
   };
 }
 
-export function reducer(state = {count: 0}, action: Action) {
+enum CounterActions {
+  INCREMENT,
+  DECREMENT,
+}
+
+export function counterReducer(state = initialState, action: Action<CounterActions>) {
+  const {INCREMENT, DECREMENT} = CounterActions;
   switch (action.type) {
-    case 'INCREMENT':
+    case INCREMENT:
       return {
         count: state.count + 1
       };
-    case 'DECREMENT':
+    case DECREMENT:
       return {
         count: state.count - 1
       };
@@ -35,11 +45,11 @@ export function reducer(state = {count: 0}, action: Action) {
 
 class ReduxCounter extends React.Component<CounterProps, CounterState> {
   increment = () => {
-    this.props.dispatch({type: 'INCREMENT'});
+    this.props.dispatch({type: CounterActions.INCREMENT});
   };
 
   decrement = () => {
-    this.props.dispatch({type: 'DECREMENT'});
+    this.props.dispatch({type: CounterActions.INCREMENT});
   };
 
   render() {

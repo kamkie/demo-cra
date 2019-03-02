@@ -1,8 +1,8 @@
 import {createBrowserHistory, History} from 'history'
-import {applyMiddleware, combineReducers, createStore, DeepPartial} from 'redux'
+import {applyMiddleware, combineReducers, createStore} from 'redux'
 import {connectRouter, routerMiddleware, RouterState} from 'connected-react-router'
 import {composeWithDevTools} from 'redux-devtools-extension';
-import {CounterState, reducer as counterReducer} from "./components/ReduxCounter";
+import {counterReducer, CounterState} from "./components/ReduxCounter";
 
 const contextPath = process.env.REACT_APP_CONTEXT_PATH || '/';
 
@@ -15,13 +15,13 @@ export interface AppState {
   counter: CounterState
 }
 
-const createRootReducer = (history: History) => combineReducers({
+const createRootReducer = (history: History) => combineReducers<AppState, any>({
   router: connectRouter(history),
   counter: counterReducer
 });
 
-export default function configureStore(preloadedState: DeepPartial<AppState>) {
+export default function configureStore() {
   const storeEnhancer = composeWithDevTools(applyMiddleware(routerMiddleware(history)));
   const rootReducer = createRootReducer(history);
-  return createStore(rootReducer, preloadedState, storeEnhancer)
+  return createStore(rootReducer, {}, storeEnhancer)
 }

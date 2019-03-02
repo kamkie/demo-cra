@@ -8,7 +8,7 @@ import Home from "./pages/Home";
 import Counter from "./components/Counter";
 import ReduxCounter from "./components/ReduxCounter";
 
-const store = configureStore({});
+const store = configureStore();
 
 export default () => (
   <Provider store={store}>
