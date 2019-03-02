@@ -4,5 +4,6 @@ import React from "react";
 export default () => <>
   <Link to="/">Home</Link>
   <Link to="/foo">Foo</Link>
+  <Link to="/counter">counter</Link>
 </>
 
