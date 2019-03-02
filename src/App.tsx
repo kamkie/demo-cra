@@ -4,12 +4,12 @@ import {ConnectedRouter} from "connected-react-router";
 import configureStore, {history} from "./store";
 import {Route, Switch} from "react-router";
 import {Provider} from "react-redux";
-import {Home} from "./pages/Home";
+import Home from "./pages/Home";
 
 const store = configureStore({});
 
-export default function App() {
-  return <Provider store={store}>
+export default () => (
+  <Provider store={store}>
     <ConnectedRouter history={history}>
       <Switch>
         <Route exact path="/">
@@ -24,4 +24,4 @@ export default function App() {
       </Switch>
     </ConnectedRouter>
   </Provider>
-};
+);
