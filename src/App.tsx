@@ -1,14 +1,12 @@
 import React from 'react';
 import './App.css';
 import {ConnectedRouter} from "connected-react-router";
-import configureStore, {history} from "./store";
+import {history, store} from "./store";
 import {Route, Switch} from "react-router";
 import {Provider} from "react-redux";
 import Home from "./pages/Home";
 import Counter from "./components/Counter";
 import ReduxCounter from "./components/ReduxCounter";
-
-const store = configureStore();
 
 export default () => (
   <Provider store={store}>

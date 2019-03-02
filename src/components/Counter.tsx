@@ -1,11 +1,12 @@
-import React, {memo, PropsWithChildren, useCallback, useEffect, useState} from "react";
+import React, {memo, ReactNode, useCallback, useEffect, useState} from "react";
 import styled from 'styled-components'
 
 const contextPath = process.env.REACT_APP_CONTEXT_PATH === '/' ? '' : process.env.REACT_APP_CONTEXT_PATH || '';
 
-interface CounterProps extends PropsWithChildren<any> {
-  counter: number,
+interface CounterProps {
+  counter: number
   step: number
+  children: ReactNode
 }
 
 const Code = styled.pre`
@@ -32,6 +33,7 @@ const Counter = (props: CounterProps) => {
       <input value={step} onChange={updateStep}/>
       <button onClick={increment}>+</button>
       <Code>{JSON.stringify(info, null, 4)}</Code>
+      <div>{props.children}</div>
     </div>
   )
 };

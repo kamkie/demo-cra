@@ -1,4 +1,4 @@
-import {createBrowserHistory, History} from 'history'
+import {createBrowserHistory} from 'history'
 import {applyMiddleware, combineReducers, createStore} from 'redux'
 import {connectRouter, routerMiddleware, RouterState} from 'connected-react-router'
 import {composeWithDevTools} from 'redux-devtools-extension';
@@ -15,13 +15,9 @@ export interface AppState {
   counter: CounterState
 }
 
-const createRootReducer = (history: History) => combineReducers<AppState, any>({
+const rootReducer = combineReducers<AppState>({
   router: connectRouter(history),
   counter: counterReducer
 });
-
-export default function configureStore() {
-  const storeEnhancer = composeWithDevTools(applyMiddleware(routerMiddleware(history)));
-  const rootReducer = createRootReducer(history);
-  return createStore(rootReducer, {}, storeEnhancer)
-}
+const storeEnhancer = composeWithDevTools(applyMiddleware(routerMiddleware(history)));
+export const store = createStore(rootReducer, {}, storeEnhancer);
