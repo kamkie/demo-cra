@@ -23,8 +23,8 @@ function mapStateToProps(state: AppState) {
 }
 
 enum CounterActions {
-  INCREMENT,
-  DECREMENT,
+  INCREMENT = '@@counter/INCREMENT',
+  DECREMENT = '@@counter/DECREMENT',
 }
 
 export function counterReducer(state = initialState, action: Action<CounterActions>) {
