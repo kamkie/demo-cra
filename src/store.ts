@@ -1,5 +1,5 @@
 import {createBrowserHistory, History} from 'history'
-import {applyMiddleware, combineReducers, compose, createStore} from 'redux'
+import {applyMiddleware, combineReducers, createStore, DeepPartial} from 'redux'
 import {connectRouter, routerMiddleware, RouterState} from 'connected-react-router'
 import {composeWithDevTools} from 'redux-devtools-extension';
 import {CounterState, reducer as counterReducer} from "./components/ReduxCounter";
@@ -20,19 +20,8 @@ const createRootReducer = (history: History) => combineReducers({
   counter: counterReducer
 });
 
-console.log(contextPath);
-
-
-export default function configureStore(preloadedState: any) {
-  return createStore(
-    createRootReducer(history), // root reducer with router state
-    preloadedState,
-    compose(composeWithDevTools(
-      applyMiddleware(
-        routerMiddleware(history), // for dispatching history actions
-        // ... other middlewares ...
-      ),
-      ),
-    )
-  )
+export default function configureStore(preloadedState: DeepPartial<AppState>) {
+  const storeEnhancer = composeWithDevTools(applyMiddleware(routerMiddleware(history)));
+  const rootReducer = createRootReducer(history);
+  return createStore(rootReducer, preloadedState, storeEnhancer)
 }
