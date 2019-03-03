@@ -18,10 +18,10 @@
     "tsc": "tsc -w"
   },
   "dependencies": {
-    "compression": "latest",
+    "compression": "^1.7.3",
     "cross-env": "^5.2.0",
     "dotenv-flow": "^0.2.0",
-    "express": "latest",
+    "express": "^4.16.4",
     "http-proxy-middleware": "^0.19.1",
     "morgan": "^1.9.1"
   },
@@ -40,7 +40,7 @@
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "react-redux": "^6.0.1",
-    "react-router": "latest",
+    "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.5",
     "redux": "^4.0.1",

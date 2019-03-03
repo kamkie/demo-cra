@@ -79,14 +79,10 @@ export function counterReducer(state = initialState, action: CounterAction): Cou
         count: state.count - 1
       };
     default:
-      assertNever(action.type);
+      // noinspection JSUnusedLocalSymbols The following line guarantees that every action in the KnownAction union has been covered by a case above
+      const exhaustiveCheck: never = action.type;
       return state;
   }
-}
-
-// noinspection JSUnusedLocalSymbols
-export function assertNever(_: never) {
-  console.error("Never touched");
 }
 
 const style: CSSProperties = {
