@@ -21,24 +21,24 @@ interface CounterAction extends Action<CounterActions> {
   payload: object
 }
 
-interface CounterExternalProps {
+interface CounterProps {
   storeSelector: (store: AppState) => CounterState
 }
 
-interface CounterDispatchProps {
+interface CounterDispatch {
   readonly increment: () => void
   readonly decrement: () => void
   readonly fetch: () => void
   readonly dataLoaded: (data: object) => void
 }
 
-type CounterProps = CounterExternalProps & CounterState & CounterDispatchProps
+type CounterAllProps = CounterProps & CounterState & CounterDispatch
 
-function mapStateToProps(state: AppState, ownProps: CounterExternalProps): CounterState {
+function mapStateToProps(state: AppState, ownProps: CounterProps): CounterState {
   return ownProps.storeSelector(state);
 }
 
-function mapDispatchToProps(dispatch: Dispatch<Action<CounterActions>>): CounterDispatchProps {
+function mapDispatchToProps(dispatch: Dispatch<Action<CounterActions>>): CounterDispatch {
   return {
     increment: () => dispatch({type: CounterActions.INCREMENT}),
     decrement: () => dispatch({type: CounterActions.DECREMENT}),
@@ -94,7 +94,7 @@ const style: CSSProperties = {
   color: '#ffffff',
 };
 
-class ReduxCounter extends React.Component<CounterProps> {
+class ReduxCounter extends React.Component<CounterAllProps> {
 
   loadData = () => {
     this.props.fetch();
