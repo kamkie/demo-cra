@@ -1,38 +1,38 @@
-import React, {CSSProperties} from 'react';
-import {connect} from "react-redux";
-import {Action, Dispatch} from "redux";
-import {AppState} from "../store";
+import React, { CSSProperties } from 'react';
+import { connect } from 'react-redux';
+import { Action, Dispatch } from 'redux';
+import { AppState } from '../store';
 
 const contextPath = process.env.REACT_APP_CONTEXT_PATH === '/' ? '' : process.env.REACT_APP_CONTEXT_PATH || '';
 
 const initialState: CounterState = {
   count: 0,
   loading: false,
-  data: {}
+  data: {},
 };
 
 export interface CounterState {
-  readonly count: number
-  readonly loading: boolean
-  readonly data: object
+  readonly count: number;
+  readonly loading: boolean;
+  readonly data: object;
 }
 
 interface CounterAction extends Action<CounterActions> {
-  payload: object
+  payload: object;
 }
 
 interface CounterProps {
-  storeSelector: (store: AppState) => CounterState
+  storeSelector: (store: AppState) => CounterState;
 }
 
 interface CounterDispatch {
-  readonly increment: () => void
-  readonly decrement: () => void
-  readonly fetch: () => void
-  readonly dataLoaded: (data: object) => void
+  readonly increment: () => void;
+  readonly decrement: () => void;
+  readonly fetch: () => void;
+  readonly dataLoaded: (data: object) => void;
 }
 
-type CounterAllProps = CounterProps & CounterState & CounterDispatch
+type CounterAllProps = CounterProps & CounterState & CounterDispatch;
 
 function mapStateToProps(state: AppState, ownProps: CounterProps): CounterState {
   return ownProps.storeSelector(state);
@@ -40,11 +40,11 @@ function mapStateToProps(state: AppState, ownProps: CounterProps): CounterState 
 
 function mapDispatchToProps(dispatch: Dispatch<Action<CounterActions>>): CounterDispatch {
   return {
-    increment: () => dispatch({type: CounterActions.INCREMENT}),
-    decrement: () => dispatch({type: CounterActions.DECREMENT}),
-    fetch: () => dispatch({type: CounterActions.LOAD}),
-    dataLoaded: data => dispatch({type: CounterActions.LOADED, payload: data}),
-  }
+    increment: () => dispatch({ type: CounterActions.INCREMENT }),
+    decrement: () => dispatch({ type: CounterActions.DECREMENT }),
+    fetch: () => dispatch({ type: CounterActions.LOAD }),
+    dataLoaded: data => dispatch({ type: CounterActions.LOADED, payload: data }),
+  };
 }
 
 enum CounterActions {
@@ -60,23 +60,23 @@ export function counterReducer(state = initialState, action: CounterAction): Cou
     case CounterActions.LOAD:
       return {
         ...state,
-        loading: true
+        loading: true,
       };
     case CounterActions.LOADED:
       return {
         ...state,
         data: action.payload,
-        loading: false
+        loading: false,
       };
     case CounterActions.INCREMENT:
       return {
         ...state,
-        count: state.count + 1
+        count: state.count + 1,
       };
     case CounterActions.DECREMENT:
       return {
         ...state,
-        count: state.count - 1
+        count: state.count - 1,
       };
     default:
       // noinspection JSUnusedLocalSymbols The following line guarantees that every action in the KnownAction union has been covered by a case above
@@ -91,18 +91,17 @@ const style: CSSProperties = {
 };
 
 class ReduxCounter extends React.Component<CounterAllProps> {
-
-  loadData = () => {
+  private loadData = () => {
     this.props.fetch();
     fetch(`${contextPath}/actuator/info`)
       .then(response => response.json())
       .then(info => info.build)
       .then(body => this.props.dataLoaded(body))
-      .catch(error => this.props.dataLoaded(error))
+      .catch(error => this.props.dataLoaded(error));
   };
 
-  render() {
-    const {count, increment, decrement, loading, data} = this.props;
+  public render() {
+    const { count, increment, decrement, loading, data } = this.props;
     return (
       <div>
         <h2>Counter</h2>
@@ -115,8 +114,11 @@ class ReduxCounter extends React.Component<CounterAllProps> {
           <pre style={style}>{JSON.stringify(data, null, 4)}</pre>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ReduxCounter);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(ReduxCounter);

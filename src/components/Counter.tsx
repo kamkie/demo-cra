@@ -1,12 +1,12 @@
-import React, {memo, ReactNode, useCallback, useEffect, useState} from "react";
-import styled from 'styled-components'
+import React, { memo, ReactNode, useCallback, useEffect, useState } from 'react';
+import styled from 'styled-components';
 
 const contextPath = process.env.REACT_APP_CONTEXT_PATH === '/' ? '' : process.env.REACT_APP_CONTEXT_PATH || '';
 
 interface CounterProps {
-  counter: number
-  step: number
-  children: ReactNode
+  counter: number;
+  step: number;
+  children: ReactNode;
 }
 
 const Code = styled.pre`
@@ -24,18 +24,20 @@ const Counter = (props: CounterProps) => {
       .then(response => response.json())
       .then(info => info.build)
       .then(body => setInfo(body))
-      .catch(error => setInfo(error))
+      .catch(error => setInfo(error));
   }, []);
 
   return (
     <div>
-      <p>counter: <span>{counter}</span></p>
-      <input value={step} onChange={updateStep}/>
+      <p>
+        counter: <span>{counter}</span>
+      </p>
+      <input value={step} onChange={updateStep} />
       <button onClick={increment}>+</button>
       <Code>{JSON.stringify(info, null, 4)}</Code>
       <div>{props.children}</div>
     </div>
-  )
+  );
 };
 
 export default memo(Counter);
