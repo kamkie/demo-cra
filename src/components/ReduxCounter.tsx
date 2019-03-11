@@ -28,7 +28,7 @@ interface CounterProps {
 interface CounterDispatch {
   readonly increment: () => void;
   readonly decrement: () => void;
-  readonly fetch: () => void;
+  readonly startLoad: () => void;
   readonly dataLoaded: (data: object) => void;
 }
 
@@ -38,21 +38,21 @@ function mapStateToProps(state: AppState, ownProps: CounterProps): CounterState 
   return ownProps.storeSelector(state);
 }
 
-function mapDispatchToProps(dispatch: Dispatch<Action<CounterActions>>): CounterDispatch {
-  return {
-    increment: () => dispatch({ type: CounterActions.INCREMENT }),
-    decrement: () => dispatch({ type: CounterActions.DECREMENT }),
-    fetch: () => dispatch({ type: CounterActions.LOAD }),
-    dataLoaded: data => dispatch({ type: CounterActions.LOADED, payload: data }),
-  };
-}
-
 enum CounterActions {
   INCREMENT = '@@counter/INCREMENT',
   DECREMENT = '@@counter/DECREMENT',
   // DECREMENT2 = '@@counter/DECREMENT2',
   LOAD = '@@counter/LOAD',
   LOADED = '@@counter/LOADED',
+}
+
+function mapDispatchToProps(dispatch: Dispatch<Action<CounterActions>>): CounterDispatch {
+  return {
+    increment: () => dispatch({ type: CounterActions.INCREMENT }),
+    decrement: () => dispatch({ type: CounterActions.DECREMENT }),
+    startLoad: () => dispatch({ type: CounterActions.LOAD }),
+    dataLoaded: data => dispatch({ type: CounterActions.LOADED, payload: data }),
+  };
 }
 
 export function counterReducer(state = initialState, action: CounterAction): CounterState {
@@ -92,7 +92,7 @@ const style: CSSProperties = {
 
 class ReduxCounter extends React.Component<CounterAllProps> {
   private loadData = () => {
-    this.props.fetch();
+    this.props.startLoad();
     fetch(`${contextPath}/actuator/info`)
       .then(response => response.json())
       .then(info => info.build)
