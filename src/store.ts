@@ -2,7 +2,10 @@ import { createBrowserHistory } from 'history';
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import { connectRouter, routerMiddleware, RouterState } from 'connected-react-router';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { counterReducer, CounterState } from './components/ReduxCounter';
+import createSagaMiddleware from 'redux-saga';
+import { counterSaga } from './components/ReduxSagaCounter';
+
+import { counterReducer, CounterState } from './components/ReduxSagaCounter';
 
 const contextPath = process.env.REACT_APP_CONTEXT_PATH || '/';
 
@@ -19,5 +22,11 @@ const rootReducer = combineReducers<AppState>({
   router: connectRouter(history),
   counter: counterReducer,
 });
-const storeEnhancer = composeWithDevTools(applyMiddleware(routerMiddleware(history)));
+
+const sagaMiddleware = createSagaMiddleware();
+const middlewares = [sagaMiddleware, routerMiddleware(history)];
+
+sagaMiddleware.run(counterSaga);
+
+const storeEnhancer = composeWithDevTools(applyMiddleware(...middlewares));
 export const store = createStore(rootReducer, {}, storeEnhancer);
