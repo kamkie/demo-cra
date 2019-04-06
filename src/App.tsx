@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
-import {ConnectedRouter} from 'connected-react-router';
-import {history, store} from './store';
-import {Route, Switch} from 'react-router';
-import {Provider} from 'react-redux';
+import { ConnectedRouter } from 'connected-react-router';
+import { history, store } from './store';
+import { Route, Switch } from 'react-router';
+import { Provider } from 'react-redux';
 import Home from './pages/Home';
 import Counter from './components/Counter';
 import ReduxCounter from './components/ReduxCounter';
@@ -13,10 +13,10 @@ export default () => (
     <ConnectedRouter history={history}>
       <Switch>
         <Route exact path="/">
-          <Home/>
+          <Home />
         </Route>
         <Route exact path="/foo">
-          <Home message={<div>hello</div>}/>
+          <Home message={<div>hello</div>} />
         </Route>
         <Route exact path="/counter">
           <Home
@@ -28,10 +28,10 @@ export default () => (
           />
         </Route>
         <Route exact path="/redux">
-          <Home message={<ReduxCounter storeSelector={store1 => store1.counter}/>}/>
+          <Home message={<ReduxCounter storeSelector={store1 => store1.counter} />} />
         </Route>
         <Route>
-          <Home message={<div>other page</div>}/>
+          <Home message={<div>other page</div>} />
         </Route>
       </Switch>
     </ConnectedRouter>
