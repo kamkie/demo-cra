@@ -73,7 +73,8 @@
     "rules": {
       "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": "warn",
-      "prettier/prettier": "warn"
+      "prettier/prettier": "warn",
+      "@typescript-eslint/explicit-function-return-type": "none"
     }
   },
   "browserslist": [
