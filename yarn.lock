@@ -4322,10 +4322,10 @@ dotenv-expand@5.1.0:
   resolved "https://registry.yarnpkg.com/dotenv-expand/-/dotenv-expand-5.1.0.tgz#3fbaf020bfd794884072ea26b1e9791d45a629f0"
   integrity sha512-YXQl1DSa4/PQyRfgrv6aoNjhasp/p4qs9FjJ4q4cQk+8m4r6k4ZSiEyytKG8f8W9gi8WsQtIObNmKd+tMzNTmA==
 
-dotenv-flow@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/dotenv-flow/-/dotenv-flow-2.0.0.tgz#9c969d73e57bc1354f6aec915ffe61ef5f411cab"
-  integrity sha512-Gfey3wkr644VCq8e0EsX7d2ywbX9WTCOu5cakwE8seUXuoSUqr/aA1Ft1VqfZcnPaPPD0ADHhQ5IrjuZieMlVw==
+dotenv-flow@3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/dotenv-flow/-/dotenv-flow-3.2.0.tgz#a5d79dd60ddb6843d457a4874aaf122cf659a8b7"
+  integrity sha512-GEB6RrR4AbqDJvNSFrYHqZ33IKKbzkvLYiD5eo4+9aFXr4Y4G+QaFrB/fNp0y6McWBmvaPn3ZNjIufnj8irCtg==
   dependencies:
     dotenv "^8.0.0"
 
