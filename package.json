@@ -58,7 +58,7 @@
     "rimraf": "^3.0.2",
     "source-map-explorer": "^2.4.2",
     "styled-components": "^4.4.1",
-    "typescript": "^3.4.2"
+    "typescript": "^3.9.7"
   },
   "eslintConfig": {
     "extends": [
