@@ -1,7 +1,7 @@
 /* eslint-disable no-console,@typescript-eslint/no-var-requires */
 // @ts-ignore
 const compression = require('compression');
-const proxy = require('http-proxy-middleware');
+const proxy = require('http-proxy-middleware').createProxyMiddleware;
 const morgan = require('morgan');
 require('dotenv-flow').config();
 
