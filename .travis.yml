@@ -1,0 +1,30 @@
+dist: xenial
+
+branches:
+  only:
+    - master
+
+cache:
+    yarn: true
+    directories:
+        - node_modules
+
+language: node_js
+
+node_js:
+    - 14
+
+before_script:
+  - node --version
+  - yarn --version
+
+
+script:
+    - yarn prettier
+    - yarn tsc:check
+    - yarn lint
+    - yarn test:coverage
+    - yarn build
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
