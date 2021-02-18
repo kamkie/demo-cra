@@ -80,6 +80,7 @@ export function counterReducer(state = initialState, action: CounterAction): Cou
       };
     default:
       // noinspection JSUnusedLocalSymbols The following line guarantees that every action in the KnownAction union has been covered by a case above
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const exhaustiveCheck: never = action.type;
       return state;
   }

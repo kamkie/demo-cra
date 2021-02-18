@@ -4,8 +4,6 @@ import { connectRouter, routerMiddleware, RouterState } from 'connected-react-ro
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { counterReducer, CounterState } from './components/ReduxCounter';
 
-const contextPath = process.env.REACT_APP_CONTEXT_PATH || '/';
-
 export const history = createBrowserHistory();
 
 export interface AppState {

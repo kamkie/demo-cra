@@ -8,7 +8,7 @@ import Home from './pages/Home';
 import Counter from './components/Counter';
 import ReduxCounter from './components/ReduxCounter';
 
-export default () => (
+const App = () => (
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <Switch>
@@ -37,3 +37,5 @@ export default () => (
     </ConnectedRouter>
   </Provider>
 );
+
+export default App;

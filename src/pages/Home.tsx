@@ -6,7 +6,7 @@ interface HomeProps {
   message?: ReactChild;
 }
 
-export default (props: HomeProps) => (
+const Home = (props: HomeProps) => (
   <div className="App">
     <header className="App-header">
       <img src={logo} className="App-logo" alt="logo" />
@@ -21,3 +21,4 @@ export default (props: HomeProps) => (
     </header>
   </div>
 );
+export default Home;
