@@ -8,7 +8,7 @@ require('dotenv-flow').config();
 const contextPath = process.env.CONTEXT_PATH === '/' ? '' : process.env.CONTEXT_PATH || '';
 console.log('contextPath:', contextPath);
 
-module.exports = function(app) {
+module.exports = function (app) {
   app.set('x-powered-by', false);
   app.use(compression());
 

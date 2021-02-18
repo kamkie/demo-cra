@@ -17,14 +17,14 @@ const Counter = (props: CounterProps) => {
   const [step, setStep] = useState<number>(props.step);
   const [counter, setCounter] = useState<number>(props.counter);
   const [info, setInfo] = useState<object>({});
-  const updateStep = useCallback(() => setStep(old => old + 1), []);
-  const increment = useCallback(() => setCounter(old => old + step), [step]);
+  const updateStep = useCallback(() => setStep((old) => old + 1), []);
+  const increment = useCallback(() => setCounter((old) => old + step), [step]);
   useEffect(() => {
     fetch(`${contextPath}/actuator/info`)
-      .then(response => response.json())
-      .then(info => info.build)
-      .then(body => setInfo(body))
-      .catch(error => setInfo(error));
+      .then((response) => response.json())
+      .then((info) => info.build)
+      .then((body) => setInfo(body))
+      .catch((error) => setInfo(error));
   }, []);
 
   return (

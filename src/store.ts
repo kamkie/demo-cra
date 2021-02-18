@@ -6,9 +6,7 @@ import { counterReducer, CounterState } from './components/ReduxCounter';
 
 const contextPath = process.env.REACT_APP_CONTEXT_PATH || '/';
 
-export const history = createBrowserHistory({
-  basename: contextPath,
-});
+export const history = createBrowserHistory();
 
 export interface AppState {
   router: RouterState;

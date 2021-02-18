@@ -51,7 +51,7 @@ function mapDispatchToProps(dispatch: Dispatch<Action<CounterActions>>): Counter
     increment: () => dispatch({ type: CounterActions.INCREMENT }),
     decrement: () => dispatch({ type: CounterActions.DECREMENT }),
     startLoad: () => dispatch({ type: CounterActions.LOAD }),
-    dataLoaded: data => dispatch({ type: CounterActions.LOADED, payload: data }),
+    dataLoaded: (data) => dispatch({ type: CounterActions.LOADED, payload: data }),
   };
 }
 
@@ -94,10 +94,10 @@ class ReduxCounter extends React.Component<CounterAllProps> {
   private loadData = () => {
     this.props.startLoad();
     fetch(`${contextPath}/actuator/info`)
-      .then(response => response.json())
-      .then(info => info.build)
-      .then(body => this.props.dataLoaded(body))
-      .catch(error => this.props.dataLoaded(error));
+      .then((response) => response.json())
+      .then((info) => info.build)
+      .then((body) => this.props.dataLoaded(body))
+      .catch((error) => this.props.dataLoaded(error));
   };
 
   public render() {
@@ -118,7 +118,4 @@ class ReduxCounter extends React.Component<CounterAllProps> {
   }
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(ReduxCounter);
+export default connect(mapStateToProps, mapDispatchToProps)(ReduxCounter);

@@ -28,7 +28,7 @@ export default () => (
           />
         </Route>
         <Route exact path="/redux">
-          <Home message={<ReduxCounter storeSelector={store1 => store1.counter} />} />
+          <Home message={<ReduxCounter storeSelector={(store1) => store1.counter} />} />
         </Route>
         <Route>
           <Home message={<div>other page</div>} />
