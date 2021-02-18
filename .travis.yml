@@ -1,8 +1,8 @@
 dist: xenial
 
 branches:
-  only:
-    - master
+    only:
+        - master
 
 cache:
     yarn: true
@@ -15,8 +15,8 @@ node_js:
     - 14
 
 before_script:
-  - node --version
-  - yarn --version
+    - node --version
+    - yarn --version
 
 
 script:
@@ -27,4 +27,4 @@ script:
     - yarn build
 
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+    - bash <(curl -s https://codecov.io/bash)
