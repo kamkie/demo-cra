@@ -42,7 +42,7 @@
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
     "babel-preset-react-app": "10.0.0",
-    "connected-react-router": "^6.9.1",
+    "connected-react-router": "^6.9.2",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react-hooks": "^4.3.0",
