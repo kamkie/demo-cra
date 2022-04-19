@@ -55,7 +55,7 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "react-testing-library": "^8.0.1",
-    "redux": "^4.1.2",
+    "redux": "^4.2.0",
     "redux-devtools-extension": "^2.13.9",
     "rimraf": "^3.0.2",
     "source-map-explorer": "^2.5.0",
