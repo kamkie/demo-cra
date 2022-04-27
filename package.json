@@ -45,7 +45,7 @@
     "connected-react-router": "^6.9.2",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react-hooks": "^4.4.0",
+    "eslint-plugin-react-hooks": "^4.5.0",
     "history": "4.10.1",
     "prettier": "^2.6.2",
     "react": "^17.0.2",
