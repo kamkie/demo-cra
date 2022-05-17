@@ -7599,10 +7599,10 @@ react-router@6.3.0:
   dependencies:
     history "^5.2.0"
 
-react-router@^5.3.1:
-  version "5.3.1"
-  resolved "https://registry.yarnpkg.com/react-router/-/react-router-5.3.1.tgz#b13e84a016c79b9e80dde123ca4112c4f117e3cf"
-  integrity sha512-v+zwjqb7bakqgF+wMVKlAPTca/cEmPOvQ9zt7gpSNyPXau1+0qvuYZ5BWzzNDP1y6s15zDwgb9rPN63+SIniRQ==
+react-router@^5.3.2:
+  version "5.3.2"
+  resolved "https://registry.yarnpkg.com/react-router/-/react-router-5.3.2.tgz#87614394781e75cc6aa3b61cdfd147a1361cd890"
+  integrity sha512-GlsSUckZ4JthgsW5lV9oSCs5CoQ7q0t0Ump/Y5YQ8qhiS+WjaAhaoJhc7otpZW9eVhO6N06vYPt40SpEzuuZeg==
   dependencies:
     "@babel/runtime" "^7.12.13"
     history "^4.9.0"
