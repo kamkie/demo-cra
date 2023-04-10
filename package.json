@@ -60,7 +60,7 @@
     "rimraf": "^4.4.1",
     "source-map-explorer": "^2.5.3",
     "styled-components": "^5.3.9",
-    "typescript": "^5.0.3"
+    "typescript": "^5.0.4"
   },
   "eslintConfig": {
     "extends": [
