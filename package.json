@@ -57,7 +57,7 @@
     "react-testing-library": "^8.0.1",
     "redux": "^4.2.1",
     "redux-devtools-extension": "^2.13.9",
-    "rimraf": "^5.0.0",
+    "rimraf": "^5.0.1",
     "source-map-explorer": "^2.5.3",
     "styled-components": "^5.3.10",
     "typescript": "^5.0.4"
