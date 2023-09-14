@@ -59,7 +59,7 @@
     "redux-devtools-extension": "^2.13.9",
     "rimraf": "^5.0.1",
     "source-map-explorer": "^2.5.3",
-    "styled-components": "^6.0.7",
+    "styled-components": "^6.0.8",
     "typescript": "^5.2.2"
   },
   "eslintConfig": {
