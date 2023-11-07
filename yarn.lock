@@ -4274,10 +4274,10 @@ dotenv-expand@^5.1.0:
   resolved "https://registry.yarnpkg.com/dotenv-expand/-/dotenv-expand-5.1.0.tgz#3fbaf020bfd794884072ea26b1e9791d45a629f0"
   integrity sha512-YXQl1DSa4/PQyRfgrv6aoNjhasp/p4qs9FjJ4q4cQk+8m4r6k4ZSiEyytKG8f8W9gi8WsQtIObNmKd+tMzNTmA==
 
-dotenv-flow@4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/dotenv-flow/-/dotenv-flow-4.0.0.tgz#91b16910fe12b184da33dca5b36f3537fc95f6bc"
-  integrity sha512-AzPaV3wNy14qLbaN/S70VHxiJaz3mI/r8mm6oD+6lPmq3qJFBw2+MUBXWujUujQ5PqtRa9v/hEWBEePSWlTRGg==
+dotenv-flow@4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/dotenv-flow/-/dotenv-flow-4.0.1.tgz#28686d1a454fb9d350e50a175375965a30492c30"
+  integrity sha512-HuCQ487bSA43mtlxdWpyk5jt5Lljy+v1I8y/2l96gtjSve9p3OvJZCCOhQnz2hY4VhLogFfXpY20zBygMwaydA==
   dependencies:
     dotenv "^16.0.0"
 
