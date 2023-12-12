@@ -29,7 +29,7 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
-    "@babel/runtime": "^7.23.5",
+    "@babel/runtime": "^7.23.6",
     "@types/history": "^5.0.0",
     "@types/jest": "29.5.11",
     "@types/node": "20.10.4",
