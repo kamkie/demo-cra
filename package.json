@@ -24,7 +24,7 @@
     "compression": "^1.7.5",
     "cross-env": "^7.0.2",
     "dotenv-flow": "4.1.0",
-    "express": "^4.21.1",
+    "express": "^4.21.2",
     "http-proxy-middleware": "^3.0.3",
     "morgan": "^1.10.0"
   },
