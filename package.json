@@ -25,7 +25,7 @@
     "cross-env": "^7.0.2",
     "dotenv-flow": "4.1.0",
     "express": "^5.1.0",
-    "http-proxy-middleware": "^3.0.3",
+    "http-proxy-middleware": "^3.0.4",
     "morgan": "^1.10.0"
   },
   "devDependencies": {
