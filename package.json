@@ -21,7 +21,7 @@
     "tsc:watch": "tsc -w"
   },
   "dependencies": {
-    "compression": "^1.8.0",
+    "compression": "^1.8.1",
     "cross-env": "^7.0.2",
     "dotenv-flow": "4.1.0",
     "express": "^5.1.0",
