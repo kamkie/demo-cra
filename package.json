@@ -48,7 +48,7 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "history": "4.10.1",
     "prettier": "^3.6.2",
-    "react": "^19.1.0",
+    "react": "^19.1.1",
     "react-dom": "^19.1.0",
     "react-redux": "^9.2.0",
     "react-router": "^5.3.4",
